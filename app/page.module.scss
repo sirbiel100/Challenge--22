@@ -1,0 +1,228 @@
+@import "./var.scss";
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+    gap: 4em;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3em;
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5em;
+
+            svg {
+                padding: 0 0 1em 0;
+                max-width: 100%;
+                height: auto;
+            }
+
+            h1 {
+                font-size: clamp(1rem, 1.2rem + 1.2vw, 2.5rem);
+                color: $Gray;
+                font-weight: 300;
+                em {
+                    color: $Very_Dark_Blue;
+                    font-weight: 700 !important;
+                }
+            }
+
+            p {
+                color: $Very_Dark_Blue;
+            }
+        }
+
+        form {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            input {
+                padding: 0.8em 1.5em;
+                border-radius: 26px;
+                border: 1px solid $Pale_Blue;
+                &:focus {
+                    outline: none;
+                }
+                &[type="button"] {
+                    background-color: $Blue;
+                    color: #ffff;
+                    box-shadow: 0 10px 20px 0 $Pale_Blue;
+                    cursor: pointer;
+
+                    &:active {
+                        transform: scale(0.9);
+                    }
+                }
+            }
+
+            span {
+                position: absolute;
+                font-size: 0.7rem;
+                width: max-content;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                color: $Light_Red;
+                pointer-events: none;
+            }
+        }
+    }
+
+    main {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+        div {
+            &:first-child {
+                display: flex;
+                gap: 1.5em;
+                section {
+                    border: 1px solid $Pale_Blue;
+                    border-radius: 50%;
+                    padding: 1em;
+
+                    img {
+                        display: block;
+                        width: 20px;
+                        height: auto;
+
+                        &:nth-child(2) {
+                            filter: brightness(0.6) hue-rotate(30deg);
+                        }
+                    }
+                }
+            }
+
+            &:last-child {
+                p {
+                    font-size: 0.8rem;
+                    color: $Gray;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 62em) {
+    //latop +
+    .section {
+        gap: 6em;
+        padding: 3em 0;
+        animation: fade-in 600ms linear 1 forwards;
+
+        header {
+            gap: 2em;
+            width: 100%;
+
+            div {
+                gap: 1em;
+
+                svg {
+                    overflow: auto;
+                    g {
+                        path {
+                            &:last-child {
+                                animation: ping 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 600ms 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            form {
+                justify-content: center;
+                flex-direction: row;
+                gap: 1em;
+                width: 100%;
+
+                input {
+                    padding: 1em 1.5em;
+                    &[type="button"] {
+                        width: 20%;
+                        transition: 200ms background-color ease;
+
+                        &:hover {
+                            background-color: hsl(223, 100%, 72%);
+                        }
+                    }
+
+                    &[type="text"] {
+                        width: 40%;
+                    }
+                }
+
+                span {
+                    top: 110%;
+                    left: 20%;
+                    transform: translateX(0) translateY(0);
+                }
+            }
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            img {
+                max-width: 70%;
+            }
+        }
+
+        .bottom {
+            div {
+                &:first-child {
+                    section {
+                        cursor: pointer;
+                        transition: 200ms all cubic-bezier(0.075, 0.82, 0.165, 1);
+
+                        &:hover {
+                            background-color: $Blue;
+                            transform: translateY(-4px);
+
+                            img {
+                                filter: brightness(10);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        filter: opacity(0);
+    }
+    100% {
+        filter: opacity(1);
+    }
+}
+
+@keyframes ping {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-70%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

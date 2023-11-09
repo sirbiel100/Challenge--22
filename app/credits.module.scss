@@ -1,0 +1,127 @@
+.creditSection {
+    position: fixed;
+    bottom: 3em;
+    right: 3em;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.158);
+    background: linear-gradient(to right, #000000, #fcfcfc);
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &::after {
+        content: "G C";
+        color: rgb(255, 213, 134);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+    &::before {
+        content: "G C";
+        color: rgba(0, 0, 0, 0.404);
+        filter: blur(5px);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    .Loading {
+        position: absolute;
+        width: 4em;
+        height: 4em;
+        border: 2px solid rgb(100, 100, 100);
+        border-top: 2px solid rgb(255, 213, 134);
+        animation: infiniteBorder 5s infinite linear;
+        border-radius: 50%;
+        transition-delay: 1s;
+    }
+
+    .creditDiv {
+        margin-left: 0.8em;
+        transform: scale(0);
+
+        p {
+            color: #ffff;
+            cursor: default;
+            text-shadow: 0 0 1px #000;
+
+            a {
+                text-decoration: none;
+                color: rgb(250, 233, 176);
+                filter: drop-shadow(0 0 5px #000000);
+            }
+        }
+    }
+
+    &:hover {
+        height: 4em;
+        width: 30em;
+        border-radius: 30px;
+        border: 1px solid black;
+
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        .Loading {
+            display: none;
+        }
+
+        .creditDiv {
+            transform: scale(1);
+            transition: all .4s ease;
+        }
+    }
+}
+
+@keyframes infiniteBorder {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .creditSection {
+        position: static;
+        width: 25em;
+        border-radius: 15px;
+
+        .creditDiv {
+            display: flex;
+            font-size: 14px;
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        &:hover {
+            width: 25em;
+            height: 4em;
+            border: none;
+        }
+    }
+
+    .Loading {
+        display: none;
+    }
+}
