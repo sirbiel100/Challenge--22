@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [](https://www.frontendmentor.io/solutions/single-column-typescript-nextjs-and-scss-W75psyx7sJ)
-- Live Site URL: [](https://challenge-22-eosin.vercel.app/)
+- Solution URL: [Click Here](https://www.frontendmentor.io/solutions/single-column-typescript-nextjs-and-scss-W75psyx7sJ)
+- Live Site URL: [Click Here](https://challenge-22-eosin.vercel.app/)
 
 ## My process
 
